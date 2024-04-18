@@ -1,9 +1,9 @@
 export enum IconName {
-  bar,
-  wifi,
-  trash,
-  charge,
-  remove,
-  history,
-  calculator,
+	bar,
+	wifi,
+	trash,
+	charge,
+	remove,
+	history,
+	calculator,
 }
