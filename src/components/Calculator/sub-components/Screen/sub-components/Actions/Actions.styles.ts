@@ -8,4 +8,8 @@ export const Wrapper = styled.div`
 
 export const Action = styled.div`
 	cursor: pointer;
+
+	&:active {
+		transform: scale(1.05);
+	}
 `

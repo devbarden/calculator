@@ -12,7 +12,12 @@ export const Wrapper = styled.div<Props>`
 	height: 2.5rem;
 	padding: 1rem;
 	border-radius: 50%;
+	user-select: none;
 	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 	opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 	background-color: ${({ disabled }) => (disabled ? 'grey' : 'white')};
+
+	&:active {
+		transform: scale(1.05);
+	}
 `
