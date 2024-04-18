@@ -1,14 +1,16 @@
 import { makeAutoObservable } from 'mobx'
 
+import { getCurrentTime } from '@app/utils'
+
 class Time {
-	time: string = new Date().toLocaleTimeString()
+	time: string = getCurrentTime()
 
 	constructor() {
 		makeAutoObservable(this)
 	}
 
 	setTime() {
-		this.time = new Date().toLocaleTimeString()
+		this.time = getCurrentTime()
 	}
 
 	get value() {

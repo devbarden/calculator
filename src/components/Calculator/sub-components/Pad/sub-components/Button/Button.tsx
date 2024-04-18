@@ -7,19 +7,30 @@ import { Wrapper } from './Button.styles'
 
 interface Props {
 	value: string
+	isDisabled?: boolean
 	handler?: () => void
 }
 
-export const Button: FC<Props> = observer(({ value, handler }) => {
-	const addOperationHandler = useCallback(() => {
-		if (handler) {
-			handler()
+export const Button: FC<Props> = observer(
+	({ value, handler, isDisabled = false }) => {
+		const addOperationHandler = useCallback(() => {
+			if (isDisabled) {
+				return
+			}
 
-			return
-		}
+			if (handler) {
+				handler()
 
-		calculator.addOperation(value)
-	}, [value, handler])
+				return
+			}
 
-	return <Wrapper onClick={handler ?? addOperationHandler}>{value}</Wrapper>
-})
+			calculator.addOperation(value)
+		}, [value, handler, isDisabled])
+
+		return (
+			<Wrapper disabled={isDisabled} onClick={handler ?? addOperationHandler}>
+				{value}
+			</Wrapper>
+		)
+	},
+)

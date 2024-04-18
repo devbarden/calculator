@@ -1,1 +1,2 @@
-export const safeEval = (value: string) => eval(value.replace(/[^-()\d/*+.]/g, ''))
+export const safeEval = (value: string) =>
+	eval(value.replace(/[^-()\d/*+.]/g, ''))

@@ -1,18 +1,11 @@
-import { observer } from 'mobx-react-lite'
+import { memo } from 'react'
 
-import { uid } from '@app/utils'
-import { calculator } from '@app/store'
+import { Calculations, Actions } from './sub-components'
+import { Wrapper } from './History.styles'
 
-import { Actions } from './sub-components'
-import { Wrapper, Calculations, Operation } from './History.styles'
-
-export const History = observer(() => (
+export const History = memo(() => (
 	<Wrapper>
-    <Calculations>
-			{calculator.calculationsHistory.map((calculation) => (
-				<Operation key={uid()}>{calculation}</Operation>
-			))}
-		</Calculations>
+		<Calculations />
 		<Actions />
 	</Wrapper>
 ))

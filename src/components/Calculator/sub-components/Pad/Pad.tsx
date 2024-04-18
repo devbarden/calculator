@@ -8,34 +8,50 @@ import { Wrapper, Row } from './Pad.styles'
 export const Pad = observer(() => (
 	<Wrapper>
 		<Row>
-			<Button value="AC" />
-			<Button value="%" />
-			<Button value="()" />
-			<Button value="/" />
+			<Button value="AC" handler={() => calculator.clearOperation()} />
+			<Button
+				value="%"
+				isDisabled={calculator.isReduceDisabled}
+				handler={() => calculator.calcPercent()}
+			/>
+			<Button
+				value="()"
+				isDisabled={calculator.isReduceDisabled}
+				handler={() => calculator.wrapToBrackets()}
+			/>
+			<Button value="/" isDisabled={calculator.isReduceDisabled} />
 		</Row>
+
 		<Row>
-			<Button value="7" />
-			<Button value="8" />
-			<Button value="9" />
-			<Button value="*" />
+			<Button value="7" isDisabled={calculator.isNumberDisabled} />
+			<Button value="8" isDisabled={calculator.isNumberDisabled} />
+			<Button value="9" isDisabled={calculator.isNumberDisabled} />
+			<Button value="*" isDisabled={calculator.isReduceDisabled} />
 		</Row>
+
 		<Row>
-			<Button value="4" />
-			<Button value="5" />
-			<Button value="6" />
-			<Button value="-" />
+			<Button value="4" isDisabled={calculator.isNumberDisabled} />
+			<Button value="5" isDisabled={calculator.isNumberDisabled} />
+			<Button value="6" isDisabled={calculator.isNumberDisabled} />
+			<Button value="-" isDisabled={calculator.isReduceDisabled} />
 		</Row>
+
 		<Row>
-			<Button value="1" />
-			<Button value="2" />
-			<Button value="3" />
-			<Button value="+" />
+			<Button value="1" isDisabled={calculator.isNumberDisabled} />
+			<Button value="2" isDisabled={calculator.isNumberDisabled} />
+			<Button value="3" isDisabled={calculator.isNumberDisabled} />
+			<Button value="+" isDisabled={calculator.isReduceDisabled} />
 		</Row>
+
 		<Row>
-			<Button value="±" />
-			<Button value="0" />
-			<Button value="." />
-			<Button value="=" handler={() => calculator.addCalculation()} />
+			<Button value="±" handler={() => calculator.changeSign()} />
+			<Button value="0" isDisabled={calculator.isZeroDisabled} />
+			<Button value="." isDisabled={calculator.isFractionDisabled} />
+			<Button
+				value="="
+				isDisabled={calculator.isReduceDisabled}
+				handler={() => calculator.addCalculation()}
+			/>
 		</Row>
 	</Wrapper>
 ))

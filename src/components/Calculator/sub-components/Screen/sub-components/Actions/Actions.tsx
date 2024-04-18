@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
 import { observer } from 'mobx-react-lite'
-import { FaHistory } from 'react-icons/fa'
-import { FaDeleteLeft } from 'react-icons/fa6'
 
+import { IconName } from '@app/enums'
+import { Icon } from '@app/components'
 import { calculator } from '@app/store'
 
-import { Wrapper } from './Actions.styles'
+import { Wrapper, Action } from './Actions.styles'
 
 export const Actions = observer(() => {
 	const openHistoryHandler = useCallback(() => {
@@ -18,8 +18,12 @@ export const Actions = observer(() => {
 
 	return (
 		<Wrapper>
-			<FaHistory onClick={openHistoryHandler} size={24} color="white" />
-			<FaDeleteLeft onClick={clearOperationHandler} size={24} color="white" />
+			<Action onClick={openHistoryHandler}>
+				<Icon name={IconName.history} size={24} />
+			</Action>
+			<Action onClick={clearOperationHandler}>
+				<Icon name={IconName.remove} size={24} />
+			</Action>
 		</Wrapper>
 	)
 })

@@ -5,3 +5,7 @@ export const Wrapper = styled.div`
 	gap: 1rem;
 	justify-content: space-between;
 `
+
+export const Action = styled.div`
+	cursor: pointer;
+`

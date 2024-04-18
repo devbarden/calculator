@@ -1,16 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	height: 10rem;
+	flex: 1;
 	padding: 1rem;
-	background-color: #61677a;
-	border-radius: 0.5rem;
 	overflow: auto;
-`
-export const Separator = styled.div`
-	height: 1px;
-	background-color: #0c2245;
-	margin: 0.5rem 0;
+	border-radius: 0.5rem;
+	background-color: #61677a;
 `
 
 export const Operation = styled.div`

@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+interface Props {
+	disabled: boolean
+}
+
+export const Wrapper = styled.div<Props>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8,5 +12,7 @@ export const Wrapper = styled.div`
 	height: 2.5rem;
 	padding: 1rem;
 	border-radius: 50%;
-	background-color: white;
+	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+	opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
+	background-color: ${({ disabled }) => (disabled ? 'grey' : 'white')};
 `

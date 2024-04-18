@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
 import { observer } from 'mobx-react-lite'
-import { FaTrash } from 'react-icons/fa'
-import { FaCalculator } from 'react-icons/fa6'
 
+import { IconName } from '@app/enums'
+import { Icon } from '@app/components'
 import { calculator } from '@app/store'
 
-import { Wrapper } from './Actions.styles'
+import { Wrapper, Action } from './Actions.styles'
 
 export const Actions = observer(() => {
 	const openCalculationHandler = useCallback(() => {
@@ -18,8 +18,12 @@ export const Actions = observer(() => {
 
 	return (
 		<Wrapper>
-			<FaCalculator onClick={openCalculationHandler} size={24} color="white" />
-			<FaTrash onClick={removeAllCalculationsHandler} size={24} color="white" />
+			<Action onClick={openCalculationHandler}>
+				<Icon name={IconName.calculator} size={24} />
+			</Action>
+			<Action onClick={removeAllCalculationsHandler}>
+				<Icon name={IconName.trash} size={24} />
+			</Action>
 		</Wrapper>
 	)
 })
